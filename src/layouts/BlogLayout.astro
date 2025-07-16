@@ -1,18 +1,47 @@
 ---
-const { title, publishDate } = Astro.props;
+const { title, publishDate, description } = Astro.props;
 ---
 
-<html lang="ja">
+<html lang="ja" class="">
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline>
+      // 初期状態で localStorage を見てテーマを決定
+      const theme = localStorage.getItem('theme');
+      if (
+        theme === 'dark' ||
+        (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+    <link rel="icon" href="/favicon.ico" />
   </head>
-  <body class="bg-white text-gray-900">
-    <main class="max-w-3xl mx-auto px-4 py-8">
+  <body class="bg-white text-gray-900 dark:bg-zinc-900 dark:text-zinc-100 font-sans antialiased">
+    <main class="max-w-3xl mx-auto px-6 py-12">
+      <button
+        class="mb-4 text-sm text-blue-500 hover:underline"
+        onclick="document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');"
+      >
+        🌗 テーマ切り替え
+      </button>
+
       <article class="prose prose-slate dark:prose-invert">
-        <h1>{title}</h1>
-        <p class="text-sm text-gray-500">{publishDate}</p>
+        <header class="mb-8">
+          <h1 class="text-4xl font-bold leading-tight mb-2">{title}</h1>
+          <p class="text-sm text-gray-500 dark:text-gray-400">{publishDate}</p>
+        </header>
+
         <slot />
+
+        <footer class="mt-16 border-t pt-6 text-sm text-gray-400 dark:text-gray-500">
+          © {new Date().getFullYear()} masakiokuno. All rights reserved.
+        </footer>
       </article>
     </main>
   </body>
