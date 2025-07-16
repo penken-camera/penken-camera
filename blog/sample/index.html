@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="ja" class=""> <head><meta charset="UTF-8"><title></title><meta name="description"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script>
+      // 初期状態で localStorage を見てテーマを決定
+      const theme = localStorage.getItem('theme');
+      if (
+        theme === 'dark' ||
+        (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/_astro/sample.sWi3FGgt.css"></head> <body class="bg-white text-gray-900 dark:bg-zinc-900 dark:text-zinc-100 font-sans antialiased"> <main class="max-w-3xl mx-auto px-6 py-12"> <button class="mb-4 text-sm text-blue-500 hover:underline" onclick="document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');">
+🌗 テーマ切り替え
+</button> <article class="prose prose-slate dark:prose-invert"> <header class="mb-8"> <h1 class="text-4xl font-bold leading-tight mb-2"></h1> <p class="text-sm text-gray-500 dark:text-gray-400"></p> </header> <h2 id="軽くてコンパクトそれでいて高画質">軽くてコンパクト、それでいて高画質</h2>
+<p>X-T5は旅行や散歩でも苦にならないサイズ感で、JPEGの画づくりも秀逸です。</p>
+<p><img src="/images/xt5.jpg" alt="カメラの写真"/></p>
+<h3 id="フィルムシミュレーションが楽しい">フィルムシミュレーションが楽しい</h3>
+<p>ノスタルジックネガで日常風景が一気に作品になります。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> camera</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  brand: </span><span style="color:#9ECBFF">&quot;FUJIFILM&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  model: </span><span style="color:#9ECBFF">&quot;X-T5&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span></code></pre> <footer class="mt-16 border-t pt-6 text-sm text-gray-400 dark:text-gray-500">
+© 2025 masakiokuno. All rights reserved.
+</footer> </article> </main> </body></html>
