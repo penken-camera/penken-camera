@@ -10,12 +10,22 @@ const posts = await getCollection('blog');
   <h1 class="text-3xl font-bold mb-6">新着記事</h1>
   <div class="grid gap-4">
     {posts.map(post => (
-      <BlogCard
-        title={post.data.title}
-        date={post.data.date}
-        description={post.data.description}
-        slug={post.slug}
-      />
-    ))}
+  <article class="flex flex-col sm:flex-row gap-4 border-b pb-6 mb-6">
+    <img
+      src={post.data.thumbnail}
+      alt={post.data.title}
+      class="w-full sm:w-48 rounded-xl object-cover h-32 sm:h-32"
+    />
+    <div>
+      <h2 class="text-xl font-bold mb-1">
+        <a href={`/blog/${post.slug}`} class="hover:underline text-blue-600 dark:text-blue-300">
+          {post.data.title}
+        </a>
+      </h2>
+      <p class="text-sm text-gray-500 dark:text-gray-400">{post.data.date}</p>
+      <p class="mt-2 text-gray-700 dark:text-gray-300">{post.data.description}</p>
+    </div>
+  </article>
+))}
   </div>
 </BaseLayout>

@@ -3,6 +3,7 @@ title: "Markdown記法の便利な使い方"
 date: "2025-07-01"
 tags: ["Markdown", "執筆", "書き方"]
 description: "Markdownを使って効率よく記事を書くための書き方・コツを紹介します。"
+thumbnail: "/images/thumbnails/DSC00599.JPG"  # ← 追加
 ---
 
 Markdownは、プレーンテキストで書ける軽量マークアップ言語です。
