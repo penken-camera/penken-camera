@@ -1,1 +1,22 @@
+.prose a {
+  color: #2563eb; /* blue-600 */
+  text-decoration: underline;
+}
+.dark .prose a {
+  color: #60a5fa; /* blue-400 */
+}
 @import "tailwindcss";
+
+/* prose（記事本文）のダークモード対応 */
+.prose {
+  color: #222;
+}
+.dark .prose {
+  color: #f3f4f6;
+}
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: inherit;
+}
+.prose p {
+  color: inherit;
+}
