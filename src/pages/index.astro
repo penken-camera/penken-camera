@@ -1,20 +1,21 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const posts = await getCollection('blog');
 ---
 
-<BaseLayout title="ブログトップ">
+<BaseLayout title="トップページ">
   <h1 class="text-3xl font-bold mb-6">新着記事</h1>
-  <div class="grid gap-6">
+  <div class="grid gap-4">
     {posts.map(post => (
-      <BlogCard 
-        title={post.data.title} 
-        date={post.data.date} 
-        description={post.data.description} 
-        slug={post.slug} />
+      <BlogCard
+        title={post.data.title}
+        date={post.data.date}
+        description={post.data.description}
+        slug={post.slug}
+      />
     ))}
   </div>
 </BaseLayout>
